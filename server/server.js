@@ -2,7 +2,7 @@ fs = Meteor.npmRequire('fs');
 path = Meteor.npmRequire('path');
 var MidiGen = Meteor.npmRequire('jsmidgen');
 
-Meteor.tempDir = path.resolve(path.resolve('.'), "../.midifiles/");
+Meteor.tempDir = path.resolve(path.resolve('.'), "../../../../../.midifiles/");
 Meteor.rootNote = 50;
 var transpose = 0;
 var bassTranspose = 0;
@@ -510,7 +510,7 @@ Meteor.methods({
         var processEndTime = new Date().getTime();
         console.log('Processing done in ' + ( processEndTime - processStartTime ) + "ms");
 
-        fs.writeFileSync(Meteor.tempDir+filename+'.mid', file.toBytes(), 'binary',function(){
+        fs.writeFileSync(Meteor.tempDir+'/'+filename+'.mid', file.toBytes(), 'binary',function(){
             if(callback && typeof callback == "function") {
                 callback(tempDir+'/'+filename+'.mid');
             }
